@@ -1,0 +1,88 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+.Nav
+{
+    width: 100%;
+    height: 60px;
+    background: rgb(5, 5, 17);
+    display: flex;
+}
+.Menu
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.Menu .MLeft
+{
+    margin: 0px;
+    padding: 0px;
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid rgb(239, 237, 243);
+}
+.Menu .MLeft h4
+{
+    text-align: center;
+    size: 30px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+.Menu .MLeft .DanhMuc
+{
+    margin-top: 10px;
+    width: 100%;
+    height: 30px;
+}
+.Menu .MLeft .DanhMuc .icon2
+{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.Menu .MLeft .DanhMuc .btdanhmuc
+{
+    width: 100%;
+    height: 50px;
+}
+.Menu .MRight
+{
+    margin-left:100px ;
+    width: 900px;
+    height: 100%;
+    text-align: center;
+}
+.Menu .MRight .bangsp
+{
+    width: 170px;
+    height: 220px;
+    display:inline-block;
+    border: 1px solid rgb(239, 237, 243);
+    margin: 5px;
+    margin-right: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+.Menu .MRight .bangsp a img
+{
+    width: 140px;
+    height: 140px;
+    margin: 5px;
+}
+.Menu .MRight .bangsp p
+{
+    margin: 0px;
+    padding: 0px;
+}
+.Menu .MRight .bangsp .khuyenmai
+{
+    float: left;
+    font-size: 12px;
+    color: red;
+    font-style: italic;
+    background: yellow;
+    border-radius: 5px;
+}

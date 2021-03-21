@@ -1,0 +1,27 @@
+
+.Menu .MRight
+{
+    width: 95%;
+    height: 100%;
+    margin-left: 25px;
+}
+.Menu .MRight h2
+{
+    margin-left: 120px;
+    color: green;
+}
+.Menu .MRight input
+{
+    width: 50%;
+}
+.Menu .MRight select
+{
+    width: 50%;
+    margin-bottom:10px ;
+}
+.Menu .MRight textarea
+{
+    width: 50%;
+    height: 60px;
+    margin-bottom:10px ;
+}
