@@ -1,0 +1,30 @@
+
+.content h2{
+    color: green;
+    margin-left:150px ;
+    margin-bottom: 30px;
+
+}
+.content .giua {
+    height: 100%;
+    width: 100%;
+}
+.content .giua input{
+    width: 50%;
+    margin-left: 100px;
+}
+.content .giua select {
+    width: 50%;
+    margin-left: 100px;
+}
+.content .giua label
+{
+    color: palevioletred;
+    margin-left: 100px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.content .giua button {
+    margin-left: 120px;
+    margin-top: 20px;
+}

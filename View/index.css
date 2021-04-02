@@ -1,0 +1,68 @@
+*
+{
+    margin: 0px auto;
+    padding: 0px;
+    font-family: sans-serif;
+}
+.login
+{
+    width: 400px;
+    height: 400px;
+    border: 1px solid green;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+h2
+{
+    text-align: center;
+}
+.nhaplogin .user
+{
+    margin: 30px auto;
+    margin-left: 65px;
+}
+.nhaplogin .user .icon1
+{
+    font-size: 30px;
+    position: absolute;
+    padding-left: 4px;
+    padding-top: 3px;
+}
+.nhaplogin .user .icon2
+{
+    font-size: 25px;
+    position: absolute;
+    padding-top: 5px;
+}
+.nhaplogin .user input{
+    width: 270px;
+    height: 35px;
+    padding-left: 35px;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    outline: none;
+}
+.nhaplogin button
+{
+    margin-top: 10px;
+    width: 270px;
+    margin-left: 65px;
+}
+.dangkivaquenpass
+{
+    display: flex;
+}
+.dangkivaquenpass .dangki 
+{
+    width: 50%;
+    margin-top: 10px;
+    text-decoration: underline;
+    margin-left: 65px;
+}
+.dangkivaquenpass .quenmatkhau
+{
+    width: 50%;
+    text-decoration: underline;
+    margin-top: 10px;
+}
