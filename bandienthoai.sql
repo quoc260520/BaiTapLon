@@ -26,7 +26,8 @@ create table  THANHVIEN (
  foreign key (IdLoai)references loaihang(IdLoai));
 
  create table  NHANVIEN (
-  IdTv int not null  primary key  ,
+   IdNv int not null  AUTO_INCREMENT primary key
+  IdTv int not null   ,
   DiaChi varchar(255) ,
   NgaySinh date ,
   GioiTinh varchar(50)   ,
