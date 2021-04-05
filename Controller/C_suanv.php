@@ -36,9 +36,9 @@ if(isset($_POST["submit"]))
     {
         echo '<center class="alert alert-danger">Email đã tồn tại </center>';
     }
-    else if($ngaysinh > date("Y/m/d"))
+    else if($ngaysinh > date("Y-m-d"))
     {
-        echo '<center class="alert alert-danger"> $ngaysinh </center>';
+        echo '<center class="alert alert-danger">Ngày sinh không hợp lệ  </center>';
     }
     else 
     {
