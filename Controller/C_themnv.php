@@ -11,6 +11,7 @@ if(isset($_POST["submit"]))
     $ngaysinh=$_POST["ngaysinh"];
     $gioitinh=$_POST["gioitinh"];
    
+    
 
     $sqlThem="select * from thanhvien  where Email='$email' ";
     $sqlThucHienThem=mysqli_query($conn,$sqlThem);
@@ -19,13 +20,18 @@ if(isset($_POST["submit"]))
     $sqlThem1="select * from thanhvien  where  SoDienThoai='$sodienthoai'";
     $sqlThucHienThem1=mysqli_query($conn,$sqlThem1);
     $rowT1=mysqli_num_rows($sqlThucHienThem1);
+   
      if($rowT1>0)
     {
-        echo '<center class="alert alert-danger">Số điện thoại bị trùng </center>';
+        echo '<center class="alert alert-danger">Số điện thoại đã tồn tại </center>';
     }
     else if($rowT>0)
     {
-        echo '<center class="alert alert-danger">Email bị trùng </center>';
+        echo '<center class="alert alert-danger">Email đã tồn tại </center>';
+    }
+    else if($ngaysinh > date("d/m/Y"))
+    {
+        echo '<center class="alert alert-danger">Ngày sinh không hợp lệ  </center>';
     }
     else
     {
