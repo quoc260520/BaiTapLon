@@ -43,7 +43,7 @@ include_once '../Controller/C_suasp.php';
                                     echo 'selected="selected"';
                                 }
                             ?>
-                        value="<?php echo $rowL['IdLoai'] ;?>"><?php echo $rowL['IdLoai']; ?></option>
+                        value="<?php echo $rowL['IdLoai'] ;?>"><?php echo $rowL['TenLoai']; ?></option>
                     <?php
                     }
                     ?>
