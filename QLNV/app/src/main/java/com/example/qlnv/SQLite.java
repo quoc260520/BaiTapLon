@@ -88,7 +88,7 @@ public class SQLite extends SQLiteOpenHelper {
         contentValues.put("Anh", anh);
         contentValues.put("GioiTinh",gioitinh);
 
-        long result = db.insert("TAIKHOAN",null,contentValues);
+        long result = db.insert("NHANVIEN",null,contentValues);
         if(result==-1){
             return  false;
         }
@@ -106,10 +106,10 @@ public class SQLite extends SQLiteOpenHelper {
             return false;
     }
 
-    public Cursor GetNv ()
+    public Cursor GetNv (String idtk)
     {
         SQLiteDatabase db=this.getReadableDatabase();
-        return db.rawQuery("select * from NHANVIEN",null);
+        return db.rawQuery("select * from NHANVIEN where IdTk= ?", new String[] {idtk});
 
     }
     public Cursor GetTk (String email,String sdt)

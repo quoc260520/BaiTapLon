@@ -24,6 +24,10 @@ public class NhanVien_List extends BaseAdapter{
         this.list = list;
     }
 
+    public NhanVien_List() {
+
+    }
+
     @Override
     public int getCount() {
         return list.size();
@@ -53,11 +57,11 @@ public class NhanVien_List extends BaseAdapter{
         NhanVien nhanVien=list.get(position);
         tv1.setText(nhanVien.hoten);
         tv2.setText(nhanVien.diachi);
-        tv3.setText( nhanVien.namsinh);
+        tv3.setText(String.valueOf(nhanVien.namsinh));
         tv4.setText(nhanVien.email);
         tv5.setText(nhanVien.gioitinh);
-        Bitmap bitmap= BitmapFactory.decodeByteArray(nhanVien.anh,0,nhanVien.anh.length);
-        img1.setImageBitmap(bitmap);
+        Bitmap bita = BitmapFactory.decodeByteArray(nhanVien.anh,0,nhanVien.anh.length);
+        img1.setImageBitmap(bita);
         return row;
     }
 

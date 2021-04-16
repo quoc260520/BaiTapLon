@@ -1,15 +1,20 @@
 package com.example.qlnv;
 
+import java.text.BreakIterator;
 import java.util.Date;
 
    public class NhanVien {
-       public int idtk;
+        int idtk;
        public String hoten ;
        public String diachi ;
        public int namsinh ;
        public String email ;
        public String gioitinh ;
        public byte[] anh;
+
+       public NhanVien() {
+       }
+
 
        public NhanVien(int idtk, String hoten, String diachi, int namsinh, String email, String gioitinh, byte[] anh) {
            this.idtk = idtk;
@@ -79,7 +84,7 @@ import java.util.Date;
 
 
 
-       public NhanVien(String hoten, String diachi, int ngaysinh, String email, String gioitinh, byte[] anh) {
+       public NhanVien(String hoten, String diachi, int namsinh, String email, String gioitinh, byte[] anh) {
            this.hoten = hoten;
            this.diachi = diachi;
            this.namsinh = namsinh;

@@ -6,8 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.browse.MediaBrowser;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -27,16 +29,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
        SQLite db =new SQLite(this);
-       context=this;
+        context=this;
         listView=(ListView)findViewById(R.id.lvds);
         list= new ArrayList<>();
         adapter =new NhanVien_List(this,list);
         listView.setAdapter(adapter);
         Intent intent=getIntent();
         idtk= intent.getStringExtra("key1");
-        Cursor cursorNV =db.GetNv();
+        Cursor cursorNV =db.GetNv(idtk);
         cursorNV.moveToFirst();
-        list.clear();
         BtnT=(Button)findViewById(R.id.btnT);
         BtnT.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,8 +47,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-       for(int i=0;i<cursorNV.getCount();i++){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String hoTen= list.get(position).getHoten().toString();
+                String diaChi=list.get(position).getDiachi().toString();
+                int namSinh=(list.get(position).getNamsinh());
+                String email=list.get(position).getEmail().toString();
+                String gioiTinh=list.get(position).getGioitinh().toString();
+                byte [] anh =list.get(position).getAnh();
+                Intent intent =new Intent(context,Update_DelActivity.class);
+                intent.putExtra("hoten",hoTen);
+                intent.putExtra("diachi",diaChi);
+                intent.putExtra("namsinh",namSinh);
+                intent.putExtra("email",email);
+                intent.putExtra("gioitinh",gioiTinh);
+                intent.putExtra("anh",anh);
+                startActivity(intent);
+            }
+        });
+        list.clear();
+     for(int i=0;i<cursorNV.getCount();i++){
             cursorNV.moveToPosition(i);
             String hoten =cursorNV.getString(2);
             String diachi =cursorNV.getString(3);
@@ -60,9 +80,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-        adapter.notifyDataSetChanged();
-
+        adapter.notifyDataSetChanged(); 
 
 
     }
+
+
 }

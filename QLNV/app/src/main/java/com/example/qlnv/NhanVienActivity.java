@@ -34,7 +34,7 @@ public class NhanVienActivity extends AppCompatActivity {
     private EditText EGt;
     private ImageView Img;
     final  int RESQUEST_TAKE_PHOTO= 123;
-    final  int REQUEST_CHOOSE_PHOTO= 321;
+    final  int REQUEST_CHOOSE_PHOTO= 456;
 
 
     @Override
@@ -52,10 +52,9 @@ public class NhanVienActivity extends AppCompatActivity {
         BT = (Button) findViewById(R.id.btnT);
         BChon = (Button) findViewById(R.id.btnChon);
         BChup = (Button) findViewById(R.id.btnChup);
-        Img=(ImageView)findViewById(R.id.img1) ;
+        Img=(ImageView)findViewById(R.id.imgAnh) ;
         Intent intent=getIntent();
-        String IdTK= intent.getStringExtra("key2");
-        Toast.makeText(context,IdTK, Toast.LENGTH_SHORT).show();
+        int IdTK=Integer.parseInt( intent.getStringExtra("key2"));
 
 
         BChon.setOnClickListener(new View.OnClickListener() {
@@ -80,20 +79,20 @@ public class NhanVienActivity extends AppCompatActivity {
                 int namsinh=Integer.parseInt(ENs.getText().toString());
                 byte [] anh= getByteArrayFromImageView(Img);
                 String gioitinh =EGt.getText().toString();
-                int idtk= Integer.parseInt(IdTK);
+                int idtk= IdTK;
 
-                if(email.equals("")||hoten.equals("")||diachi.equals("")||namsinh==Integer.parseInt("")||anh.equals("")||gioitinh.equals("")){
+                if(email.equals("")||hoten.equals("")||diachi.equals("")||anh.equals("")||gioitinh.equals("")){
                     Toast.makeText(context,"Vui lòng điền đủ thông tin ", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     boolean checknv= db.checknv(email);
-                    boolean checkinsertnv= db.insertNV(idtk,hoten,diachi,namsinh,email,anh,gioitinh);
                     if(checknv==true)
                     {
                         Toast.makeText(context," Email nhân viên đã tồn tại ", Toast.LENGTH_SHORT).show();
                     }
                     else
                         {
+                            boolean checkinsertnv= db.insertNV(idtk,hoten,diachi,namsinh,email,anh,gioitinh);
                         if( checkinsertnv==true)
                     {
                         Toast.makeText(context,"Thêm thành công ", Toast.LENGTH_SHORT).show();
@@ -125,22 +124,14 @@ public class NhanVienActivity extends AppCompatActivity {
         intent.setType("image/*");
         startActivityForResult(intent,REQUEST_CHOOSE_PHOTO);
     }
-    private byte[] getByteArrayFromImageView(ImageView imgv){
 
-        BitmapDrawable drawable = (BitmapDrawable) imgv.getDrawable();
-        Bitmap bmp = drawable.getBitmap();
-
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
-        return byteArray;
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==RESULT_OK)
         {
-            if(requestCode==REQUEST_CHOOSE_PHOTO&& data !=null){
+            if(requestCode==REQUEST_CHOOSE_PHOTO){
                 try {
                     Uri imageUri =data.getData();
                     InputStream is=getContentResolver().openInputStream(imageUri);
@@ -151,12 +142,24 @@ public class NhanVienActivity extends AppCompatActivity {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-            }else if(requestCode==RESQUEST_TAKE_PHOTO  && data !=null){
+            }else if(requestCode==RESQUEST_TAKE_PHOTO  ){
                 Bitmap bitmap=(Bitmap) data.getExtras().get("data");
                 Img.setImageBitmap(bitmap);
             }
 
         }
-        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private byte[] getByteArrayFromImageView(ImageView imgv){
+
+        BitmapDrawable drawable = (BitmapDrawable) imgv.getDrawable();
+        Bitmap bmp = drawable.getBitmap();
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
     }
 }
+
+
