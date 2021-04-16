@@ -53,14 +53,12 @@ public class NhanVienActivity extends AppCompatActivity {
         BChon = (Button) findViewById(R.id.btnChon);
         BChup = (Button) findViewById(R.id.btnChup);
         Img=(ImageView)findViewById(R.id.imgAnh) ;
-        Intent intent=getIntent();
-        int IdTK=Integer.parseInt( intent.getStringExtra("key2"));
 
 
         BChon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                choosePhoto();
+               choosePhoto();
             }
         });
         BChup.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +77,6 @@ public class NhanVienActivity extends AppCompatActivity {
                 int namsinh=Integer.parseInt(ENs.getText().toString());
                 byte [] anh= getByteArrayFromImageView(Img);
                 String gioitinh =EGt.getText().toString();
-                int idtk= IdTK;
 
                 if(email.equals("")||hoten.equals("")||diachi.equals("")||anh.equals("")||gioitinh.equals("")){
                     Toast.makeText(context,"Vui lòng điền đủ thông tin ", Toast.LENGTH_SHORT).show();
@@ -92,11 +89,11 @@ public class NhanVienActivity extends AppCompatActivity {
                     }
                     else
                         {
-                            boolean checkinsertnv= db.insertNV(idtk,hoten,diachi,namsinh,email,anh,gioitinh);
+                            boolean checkinsertnv= db.insertNV(hoten,diachi,namsinh,email,anh,gioitinh);
                         if( checkinsertnv==true)
                     {
                         Toast.makeText(context,"Thêm thành công ", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(context, MainActivity.class);
+                        Intent intent =new Intent(context,MainActivity.class);
                         startActivity(intent);
 
                     }
@@ -156,7 +153,7 @@ public class NhanVienActivity extends AppCompatActivity {
         Bitmap bmp = drawable.getBitmap();
 
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        bmp.compress(Bitmap.CompressFormat.PNG, 0, stream);
         byte[] byteArray = stream.toByteArray();
         return byteArray;
     }

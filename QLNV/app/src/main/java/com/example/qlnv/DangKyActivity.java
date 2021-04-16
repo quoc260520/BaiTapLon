@@ -34,27 +34,36 @@ public class DangKyActivity extends AppCompatActivity {
         BDk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email =EEm.getText().toString();
-                String sdt=EP.getText().toString();
-                String pass=EPw.getText().toString();
+                String email = EEm.getText().toString();
+                String sdt = EP.getText().toString();
+                String pass = EPw.getText().toString();
 
-                Boolean checktk= db.check2(email,sdt);
-                if(checktk==false ){
-                    Boolean checkis = db.insertTK(email,sdt,pass);
-                    if(checkis==true)
-                    {
-                    Toast.makeText(context,"Đăng ký thành công ", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(context, LoginActivity.class);
-                    startActivity(intent);
-                    }
-                    else
-                    {
-                        Toast.makeText(context,"Đăng ký thất bại ", Toast.LENGTH_SHORT).show();
-                    }
-
+                if (sdt.length() < 8 || sdt.length() > 14)
+                {
+                    Toast.makeText(context, "Số điện thoại không hộp lệ", Toast.LENGTH_SHORT).show();
+                }
+                else if (pass.length() < 8 || pass.length() > 16)
+                {
+                    Toast.makeText(context, "Mật khẩu nằm trong khoảng 8 đến 16 kí tự", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(context,"Tài khoản bị trùng ", Toast.LENGTH_SHORT).show();
+                    Boolean checktk1 = db.checkTK();
+
+                    if (checktk1 == true) {
+                        Toast.makeText(context, "Không thể đăng ký thêm ", Toast.LENGTH_SHORT).show();
+                    } else {
+
+                        Boolean checkis = db.insertTK(email,sdt,pass);
+                        if (checkis == true) {
+                            Toast.makeText(context, "Đăng ký thành công ", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(context, LoginActivity.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(context, "Đăng ký thất bại ", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+
                 }
 
             }

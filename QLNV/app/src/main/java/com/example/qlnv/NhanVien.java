@@ -4,7 +4,6 @@ import java.text.BreakIterator;
 import java.util.Date;
 
    public class NhanVien {
-        int idtk;
        public String hoten ;
        public String diachi ;
        public int namsinh ;
@@ -16,8 +15,8 @@ import java.util.Date;
        }
 
 
-       public NhanVien(int idtk, String hoten, String diachi, int namsinh, String email, String gioitinh, byte[] anh) {
-           this.idtk = idtk;
+       public NhanVien(String hoten, String diachi, int namsinh, String email, String gioitinh, byte... anh) {
+
            this.hoten = hoten;
            this.diachi = diachi;
            this.namsinh = namsinh;
@@ -26,13 +25,6 @@ import java.util.Date;
            this.anh = anh;
        }
 
-       public int getIdtk() {
-           return idtk;
-       }
-
-       public void setIdtk(int idtk) {
-           this.idtk = idtk;
-       }
 
        public String getHoten() {
            return hoten;
@@ -84,13 +76,6 @@ import java.util.Date;
 
 
 
-       public NhanVien(String hoten, String diachi, int namsinh, String email, String gioitinh, byte[] anh) {
-           this.hoten = hoten;
-           this.diachi = diachi;
-           this.namsinh = namsinh;
-           this.email = email;
-           this.gioitinh = gioitinh;
-           this.anh = anh;
-       }
+
    }
 

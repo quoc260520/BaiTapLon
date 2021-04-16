@@ -18,7 +18,6 @@ public class LoginActivity extends AppCompatActivity  {
     private EditText EUn;
     private EditText EPw;
     private TextView Tv;
-    public String IdTK;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,19 +49,13 @@ public class LoginActivity extends AppCompatActivity  {
                 {
                     Boolean check = db.check(s,s1);
                     Boolean check1 = db.check1(s,s1);
-                    Cursor cursor_id= db.GetTk(s,s);
-                    cursor_id.moveToFirst();
-                    IdTK=cursor_id.getString(0);
                     if (check == true || check1==true)
                     {
                         Intent intent = new Intent(context, MainActivity.class);
-                        intent.putExtra("key1",IdTK);
                         startActivity(intent);
-
-
                     }
                     else {
-                        Toast.makeText(context, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Tài khoản hoặc mật khẩu không chính xác", Toast.LENGTH_SHORT).show();
                     }
                 }
 

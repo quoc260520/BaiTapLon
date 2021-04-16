@@ -76,11 +76,10 @@ public class SQLite extends SQLiteOpenHelper {
             return true;
         }
     }
-    public Boolean insertNV (int idtk, String hoten, String diachi, int namsinh, String email, byte[] anh , String gioitinh)
+    public Boolean insertNV ( String hoten, String diachi, int namsinh, String email, byte[] anh , String gioitinh)
     {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
-        contentValues.put("IdTk",idtk);
         contentValues.put("HoTen",hoten);
         contentValues.put("DiaChi",diachi);
         contentValues.put("NamSinh",namsinh);
@@ -89,6 +88,38 @@ public class SQLite extends SQLiteOpenHelper {
         contentValues.put("GioiTinh",gioitinh);
 
         long result = db.insert("NHANVIEN",null,contentValues);
+        if(result==-1){
+            return  false;
+        }
+        else {
+            return true;
+        }
+    }
+    public Boolean UpdateNv (String id,String hoten, String diachi, int namsinh, String email, byte[] anh , String gioitinh)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("HoTen",hoten);
+        contentValues.put("DiaChi",diachi);
+        contentValues.put("NamSinh",namsinh);
+        contentValues.put("Email",email);
+        contentValues.put("Anh", anh);
+        contentValues.put("GioiTinh",gioitinh);
+
+        long result = db.update("NHANVIEN",contentValues,"IdNv=?",new String[]{id});
+        if(result==-1){
+            return  false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    public Boolean DeleteNv (String id)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+
+        long result = db.delete("NHANVIEN","IdNv=?",new String[]{id});
         if(result==-1){
             return  false;
         }
@@ -105,17 +136,38 @@ public class SQLite extends SQLiteOpenHelper {
         else
             return false;
     }
+    public Boolean checknvup(String email,String id) {
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursorNV = database.rawQuery("select * from NHANVIEN where Email=? and IdNv!=? ",new String[]{email,id});
+        if (cursorNV.getCount() > 0)
+            return true;
+        else
+            return false;
+    }
 
-    public Cursor GetNv (String idtk)
+    public Cursor GetNv ()
     {
         SQLiteDatabase db=this.getReadableDatabase();
-        return db.rawQuery("select * from NHANVIEN where IdTk= ?", new String[] {idtk});
-
+        return db.rawQuery("select * from NHANVIEN",null);
     }
     public Cursor GetTk (String email,String sdt)
     {
         SQLiteDatabase db=this.getReadableDatabase();
         return db.rawQuery("select IdTk from TAIKHOAN where Email=? or SoDienThoai=?",new String[]{email, sdt});
+
+    }
+    public Boolean checkTK() {
+        SQLiteDatabase database = getReadableDatabase();
+        Cursor cursorC = database.rawQuery("select * from TAIKHOAN ",null);
+        if (cursorC.getCount() > 0)
+            return true;
+        else
+            return false;
+    }
+    public Cursor GetIdnv (String email)
+    {
+        SQLiteDatabase db=this.getReadableDatabase();
+        return db.rawQuery("select IdNv from NHANVIEN where Email= ?", new String[] {email});
 
     }
 }
