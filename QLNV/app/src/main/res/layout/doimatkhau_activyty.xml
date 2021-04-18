@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@drawable/bg3">
+
+
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20pt"
+        android:text="Đổi mật khẩu"
+        android:layout_marginTop="20pt"
+        android:textColor="@color/black"/>
+    <EditText
+        android:id="@+id/edĐp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50pt"
+        android:layout_marginBottom="5pt"
+        android:textColor="@color/white"
+        android:ems="14"
+        android:inputType="text"
+        android:drawableRight="@drawable/ic_baseline_person_24"
+        android:hint="Email hoặc Số điện thoại"/>
+
+    <EditText
+        android:id="@+id/edĐp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/ic_baseline_vpn_key_24"
+        android:layout_marginBottom="5pt"
+        android:inputType="text"
+        android:ems="14"
+        android:hint="Mật Khẩu Cũ"/>
+    <EditText
+        android:id="@+id/edĐp3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5pt"
+        android:ems="14"
+        android:drawableRight="@drawable/ic_baseline_vpn_key_24"
+        android:inputType="text"
+        android:hint="Mật Khẩu Mới"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/btXn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15pt"
+        android:layout_marginTop="25pt"
+        android:text="Xác nhận">
+
+    </Button>
+    <Button
+        android:id="@+id/btH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25pt"
+        android:text="Thoát">
+
+    </Button>
+    </LinearLayout>
+
+</LinearLayout>

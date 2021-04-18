@@ -18,6 +18,7 @@ public class LoginActivity extends AppCompatActivity  {
     private EditText EUn;
     private EditText EPw;
     private TextView Tv;
+    private Button Btt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,8 @@ public class LoginActivity extends AppCompatActivity  {
         EPw=(EditText)findViewById(R.id.ed2);
         BLg=(Button)findViewById(R.id.btdn);
         BSg=(Button)findViewById(R.id.btdk);
+        Tv=(TextView)findViewById(R.id.tvdmk);
+        Btt=(Button)findViewById(R.id.btnTn) ;
 
         BLg.setOnClickListener(new View.OnClickListener()
         {
@@ -65,6 +68,21 @@ public class LoginActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DangKyActivity.class);
+                startActivity(intent);
+            }
+        });
+        Tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context, DoiMatKhauActivity.class);
+                startActivity(intent);
+            }
+        });
+        Btt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(context,ThongTinActivity.class);
                 startActivity(intent);
             }
         });

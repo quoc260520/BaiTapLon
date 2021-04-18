@@ -55,11 +55,11 @@ public class NhanVien_List extends BaseAdapter{
         TextView tv5=(TextView)row.findViewById(R.id.tv5);
 
         NhanVien nhanVien=list.get(position);
-        tv1.setText(nhanVien.hoten);
-        tv2.setText(nhanVien.diachi);
-        tv3.setText(String.valueOf(nhanVien.namsinh));
-        tv4.setText(nhanVien.email);
-        tv5.setText(nhanVien.gioitinh);
+        tv1.setText("Họ tên:"+ nhanVien.hoten);
+        tv2.setText("Địa chỉ:"+ nhanVien.diachi);
+        tv3.setText("Năm sinh:"+ String.valueOf(nhanVien.namsinh));
+        tv4.setText("Email:"+ nhanVien.email);
+        tv5.setText("Giới tính:"+ nhanVien.gioitinh);
         Bitmap bita = BitmapFactory.decodeByteArray(nhanVien.anh,0,nhanVien.anh.length);
         img1.setImageBitmap(bita);
         return row;

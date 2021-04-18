@@ -21,12 +21,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.Date;
+
 
 public class NhanVienActivity extends AppCompatActivity {
     private Context context;
     private Button BChon;
     private Button BChup;
     private Button BT;
+    private Button BH;
     private EditText EHt;
     private EditText EDc;
     private EditText ENs;
@@ -50,6 +53,7 @@ public class NhanVienActivity extends AppCompatActivity {
         EEm = (EditText) findViewById(R.id.ed4);
         EGt = (EditText) findViewById(R.id.ed5);
         BT = (Button) findViewById(R.id.btnT);
+        BH=(Button)findViewById(R.id.btnH);
         BChon = (Button) findViewById(R.id.btnChon);
         BChup = (Button) findViewById(R.id.btnChup);
         Img=(ImageView)findViewById(R.id.imgAnh) ;
@@ -109,6 +113,13 @@ public class NhanVienActivity extends AppCompatActivity {
             }
 
         });
+        BH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(context,MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     private void takePicture() //chup hinh
     {
@@ -153,7 +164,7 @@ public class NhanVienActivity extends AppCompatActivity {
         Bitmap bmp = drawable.getBitmap();
 
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.PNG, 0, stream);
+        bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
         return byteArray;
     }

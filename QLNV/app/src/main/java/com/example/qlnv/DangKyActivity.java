@@ -18,7 +18,6 @@ public class DangKyActivity extends AppCompatActivity {
     private EditText EPw;
     private Button BDk;
     Context context;
-    SQLite db = new SQLite( this);
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

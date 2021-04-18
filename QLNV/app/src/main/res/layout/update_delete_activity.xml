@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NhanVienActivity" >
+    tools:context=".NhanVienActivity"
+    android:background="@drawable/nen01"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,15 +16,15 @@
 
             <ImageView
                 android:id="@+id/imgAnhUp"
-                android:layout_width="300px"
-                android:layout_height="350px"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 app:srcCompat="@mipmap/ic_launcher" />
 
             <Button
                 android:id="@+id/btnChupUp"
                 android:layout_width="150px"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="18pt"
+                android:layout_marginLeft="10pt"
                 android:layout_marginTop="80px"
                 app:icon="@android:drawable/ic_menu_camera" />
 
@@ -34,20 +32,26 @@
                 android:id="@+id/btnChonUp"
                 android:layout_width="150px"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10pt"
+                android:layout_marginLeft="5pt"
                 android:layout_marginTop="80px"
-                app:icon="@android:drawable/ic_input_add" />
+                app:icon="@android:drawable/ic_input_add"
+                />
+
         </LinearLayout>
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10pt">
 
         <EditText
             android:id="@+id/ed1Up"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5pt"
-            android:layout_marginBottom="2pt"
-            android:layout_marginLeft="10px"
+            android:ems="15"
+            android:layout_marginBottom="5dp"
             android:hint="Họ và tên"
             android:inputType="text" />
 
@@ -55,10 +59,10 @@
 
         <EditText
             android:id="@+id/ed2Up"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="2pt"
-            android:layout_marginLeft="10px"
+            android:ems="15"
+            android:layout_marginBottom="5dp"
             android:hint="Địa chỉ"
             android:inputType="text" />
 
@@ -66,20 +70,20 @@
 
         <EditText
             android:id="@+id/ed3Up"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="2pt"
-            android:layout_marginLeft="10px"
+            android:ems="15"
+            android:layout_marginBottom="5dp"
             android:hint="Năm sinh"
             android:inputType="number" />
 
 
         <EditText
             android:id="@+id/ed4Up"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="2pt"
-            android:layout_marginLeft="10px"
+            android:ems="15"
+            android:layout_marginBottom="5dp"
             android:hint="Email"
             android:inputType="textEmailAddress" />
 
@@ -87,27 +91,30 @@
 
         <EditText
             android:id="@+id/ed5Up"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10px"
+            android:ems="14"
+            android:layout_marginBottom="5dp"
             android:hint="Giới tính"
             android:inputType="text" />
 
         <Button
             android:id="@+id/btnS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="250px"
-            android:layout_marginTop="10pt"
-            android:text="Cập nhật " />
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:text="Cập nhật "
+            android:background="@drawable/custom01"/>
 
         <Button
             android:id="@+id/btnX"
             android:layout_width="27pt"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="250px"
-            android:layout_marginTop="5pt"
-            app:icon="@android:drawable/ic_menu_delete" />
+            android:layout_marginTop="5dp"
+            app:icon="@android:drawable/ic_menu_delete"
+            />
 
     </LinearLayout>
+
 </LinearLayout>

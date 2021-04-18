@@ -20,7 +20,9 @@
             android:id="@+id/btnT"
             android:layout_width="150px"
             android:layout_height="wrap_content"
-            app:icon="@android:drawable/ic_input_add" />
+            app:icon="@android:drawable/ic_input_add"
+            android:background="@drawable/custom01"
+            />
     </LinearLayout>
 
     <ListView

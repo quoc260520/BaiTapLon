@@ -20,6 +20,8 @@
         <activity android:name=".NhanVienActivity"></activity>
         <activity android:name=".DangKyActivity"></activity>
         <activity android:name=".Update_DelActivity"></activity>
+        <activity android:name=".DoiMatKhauActivity"></activity>
+        <activity android:name=".ThongTinActivity"></activity>
 
     </application>
 

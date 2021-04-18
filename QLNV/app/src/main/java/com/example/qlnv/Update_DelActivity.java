@@ -1,6 +1,7 @@
 package com.example.qlnv;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.ByteArrayOutputStream;
@@ -133,14 +135,33 @@ public class Update_DelActivity extends AppCompatActivity {
         BX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  Boolean checkdl = db.DeleteNv(idnv);
-                  if(checkdl==true){
-                      Toast.makeText(context,"Xóa thành công ", Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(context,MainActivity.class);
-                    startActivity(intent);
-                      }
-                  else
-                      Toast.makeText(context,"Nhân viên chưa được xóa" , Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setIcon(android.R.drawable.ic_delete);
+                builder.setTitle("Xác nhận xóa ");
+                builder .setMessage("Bạn có muốn xóa nhân viên này không ?");
+                builder.setPositiveButton("Có ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Boolean checkdl = db.DeleteNv(idnv);
+                        if(checkdl==true){
+                            Toast.makeText(context,"Xóa thành công ", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(context,MainActivity.class);
+                            startActivity(intent);
+                        }
+                        else
+                            Toast.makeText(context,"Nhân viên chưa được xóa" , Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog dialog=builder.create();
+                dialog.show();
+
                   }
 
 

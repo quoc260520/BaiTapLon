@@ -76,6 +76,23 @@ public class SQLite extends SQLiteOpenHelper {
             return true;
         }
     }
+    public Boolean UpdateTk(String idtk,String email,String sodienthoai,String pass)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("Email",email);
+        contentValues.put("SoDienThoai",sodienthoai);
+        contentValues.put("Pass",pass);
+
+        long result = db.update("TAIKHOAN",contentValues,"IdTk=?",new String[]{idtk});
+        if(result==-1){
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
     public Boolean insertNV ( String hoten, String diachi, int namsinh, String email, byte[] anh , String gioitinh)
     {
         SQLiteDatabase db=this.getWritableDatabase();
@@ -87,7 +104,7 @@ public class SQLite extends SQLiteOpenHelper {
         contentValues.put("Anh", anh);
         contentValues.put("GioiTinh",gioitinh);
 
-        long result = db.insert("NHANVIEN",null,contentValues);
+        long result = db.insert("NHANVIEN","Anh",contentValues);
         if(result==-1){
             return  false;
         }
@@ -114,6 +131,7 @@ public class SQLite extends SQLiteOpenHelper {
             return true;
         }
     }
+
 
     public Boolean DeleteNv (String id)
     {
@@ -156,6 +174,12 @@ public class SQLite extends SQLiteOpenHelper {
         return db.rawQuery("select IdTk from TAIKHOAN where Email=? or SoDienThoai=?",new String[]{email, sdt});
 
     }
+    public Cursor GetTk1 (String email,String sdt)
+    {
+        SQLiteDatabase db=this.getReadableDatabase();
+        return db.rawQuery("select * from TAIKHOAN where Email=? or SoDienThoai=?",new String[]{email, sdt});
+
+    }
     public Boolean checkTK() {
         SQLiteDatabase database = getReadableDatabase();
         Cursor cursorC = database.rawQuery("select * from TAIKHOAN ",null);
@@ -170,6 +194,8 @@ public class SQLite extends SQLiteOpenHelper {
         return db.rawQuery("select IdNv from NHANVIEN where Email= ?", new String[] {email});
 
     }
+
+
 }
 
 
