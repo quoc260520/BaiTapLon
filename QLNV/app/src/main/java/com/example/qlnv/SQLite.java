@@ -53,7 +53,7 @@ public class SQLite extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table if not exists TAIKHOAN(IdTk integer primary key AUTOINCREMENT, Email text , SoDienThoai text , Pass text)");
-        db.execSQL("create table if not exists NHANVIEN(IdNv integer primary key AUTOINCREMENT , IdTk integer , HoTen text , DiaChi text , NamSinh integer , Email text ,Anh blob, GioiTinh text , FOREIGN KEY (IdTk) REFERENCES TAIKHOAN (IdTk))");
+        db.execSQL("create table if not exists NHANVIEN(IdNv integer primary key AUTOINCREMENT  , HoTen text , DiaChi text , NamSinh integer , Email text ,Anh blob, GioiTinh text )");
 
     }
 

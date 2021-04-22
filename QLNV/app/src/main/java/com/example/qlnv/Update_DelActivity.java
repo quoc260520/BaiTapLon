@@ -30,6 +30,7 @@ public class Update_DelActivity extends AppCompatActivity {
     private Button BChupUp;
     private Button BS;
     private Button BX;
+    private Button BT;
     private EditText EHtUp;
     private EditText EDcUp;
     private EditText ENsUp;
@@ -52,6 +53,7 @@ public class Update_DelActivity extends AppCompatActivity {
         EGtUp = (EditText) findViewById(R.id.ed5Up);
         BS = (Button) findViewById(R.id.btnS);
         BX= (Button) findViewById(R.id.btnX);
+        BT= (Button) findViewById(R.id.btnTUp);
         BChonUp = (Button) findViewById(R.id.btnChonUp);
         BChupUp = (Button) findViewById(R.id.btnChupUp);
         ImgUp=(ImageView)findViewById(R.id.imgAnhUp) ;
@@ -165,6 +167,13 @@ public class Update_DelActivity extends AppCompatActivity {
                   }
 
 
+        });
+        BT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(context,MainActivity.class);
+                startActivity(intent);
+            }
         });
     }
     private void takePicture() //chup hinh

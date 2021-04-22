@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50pt"
         android:layout_marginBottom="5pt"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:ems="14"
         android:inputType="text"
         android:drawableRight="@drawable/ic_baseline_person_24"

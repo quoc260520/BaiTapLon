@@ -12,6 +12,7 @@ import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     NhanVien_List adapter;
     Context context;
     private Button BtnT;
+    private Button BtnDx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursorNV = db.GetNv();
         cursorNV.moveToFirst();
         BtnT = (Button) findViewById(R.id.btnT);
+        BtnDx= (Button) findViewById(R.id.btnDx);
         BtnT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +49,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        BtnDx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(context,LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -68,17 +80,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         list.clear();
 
 
             for (int i = 0; i < cursorNV.getCount(); i++) {
                 cursorNV.moveToPosition(i);
-                String hoten = cursorNV.getString(2);
-                String diachi = cursorNV.getString(3);
-                int namsinh = cursorNV.getInt(4);
-                String email = cursorNV.getString(5);
-                byte[] anh = cursorNV.getBlob(6);
-                String gioitinh = cursorNV.getString(7);
+                String hoten = cursorNV.getString(1);
+                String diachi = cursorNV.getString(2);
+                int namsinh = cursorNV.getInt(3);
+                String email = cursorNV.getString(4);
+                byte[] anh = cursorNV.getBlob(5);
+                String gioitinh = cursorNV.getString(6);
                 list.add(new NhanVien(hoten, diachi, namsinh, email, gioitinh, anh));
 
             }
