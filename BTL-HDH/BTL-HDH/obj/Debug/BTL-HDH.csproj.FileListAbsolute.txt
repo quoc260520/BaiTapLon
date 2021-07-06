@@ -1,0 +1,9 @@
+C:\Users\TRINHQUOC-PC\source\repos\BTL-HDH\BTL-HDH\bin\Debug\BTL-HDH.exe.config
+C:\Users\TRINHQUOC-PC\source\repos\BTL-HDH\BTL-HDH\bin\Debug\BTL-HDH.exe
+C:\Users\TRINHQUOC-PC\source\repos\BTL-HDH\BTL-HDH\bin\Debug\BTL-HDH.pdb
+C:\Users\TRINHQUOC-PC\source\repos\BTL-HDH\BTL-HDH\obj\Debug\BTL-HDH.csprojAssemblyReference.cache
+C:\Users\TRINHQUOC-PC\source\repos\BTL-HDH\BTL-HDH\obj\Debug\BTL_HDH.Form1.resources
+C:\Users\TRINHQUOC-PC\source\repos\BTL-HDH\BTL-HDH\obj\Debug\BTL_HDH.Properties.Resources.resources
+C:\Users\TRINHQUOC-PC\source\repos\BTL-HDH\BTL-HDH\obj\Debug\BTL-HDH.csproj.GenerateResource.cache
+C:\Users\TRINHQUOC-PC\source\repos\BTL-HDH\BTL-HDH\obj\Debug\BTL-HDH.exe
+C:\Users\TRINHQUOC-PC\source\repos\BTL-HDH\BTL-HDH\obj\Debug\BTL-HDH.pdb
