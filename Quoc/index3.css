@@ -1,0 +1,25 @@
+body{
+    background-image: url(./anh/bg.png);
+    background-repeat: no-repeat;
+    background-size:cover; 
+    font-family:Comic Sans MS;
+}
+.nav {
+    width: 50%;
+    border: 1px solid rgb(87, 83, 83);
+    border-radius: 5px;
+    background-color: cadetblue;
+    margin-left: 25%;
+    margin-top: 200px;
+    
+}
+.nav h3 {
+    margin-left: 30%;
+    color: rgb(24, 26, 26);
+
+}
+
+.nav i {
+    color: red;
+   
+}
