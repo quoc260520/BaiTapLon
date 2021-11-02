@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+.content {
+    position: relative;
+}
+.map {
+    width: 100vw;
+    height: 100vh;
+}
+#info {
+    position: absolute;
+    display:none;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    color:#fff;
+}
+
+#info.open {
+    display: block;
+}
+
+.modal {
+    display: none;
+}
+.modal.open {
+    display: flex;
+}
+.add-user {
+    position: fixed;
+    top: 50%;
+    left:  calc(50% - 150px);
+    transform: translateY(-50%) ;
+    border: 1px solid #ccc;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    padding: 10px 20px;
+    background: #fff;
+    animation: slide ease 1s;
+}
+.add-user .btn-close{
+    position:absolute;
+    top: 5px;
+    right:5px;
+    color: #ccc;
+    opacity: 0.8;
+    cursor: pointer;
+    padding:5px;
+}
+.add-user label {
+     line-height:36px;
+     font-size:18px;
+}
+.add-user input {
+    line-height:25px;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.add-user button {
+    margin-top:20px;
+    line-height:30px;
+    width: 80px;
+    background-color:rgb(60, 163, 223);
+    border-radius: 2px;
+}
+.add-user button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+@keyframes slide {
+    from {
+        transform: translateY(-150%) ;
+        opacity:0;
+    }
+    to {
+        transform: translateY(-50%);
+        opacity:1;
+    }
+    
+}
+
+.main {
+    width: 200px ;
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background:rgba(255,255,255,0.9);
+    position:fixed;
+    top: 20%;
+    left: 10px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+
+}
+.main #sbm {
+    margin-top:10px;
+    padding:3px;
+    cursor: pointer;
+    width: 50px;
+    margin-bottom: 10px;
+}
+#cursor {
+    position:absolute;
+    width: 10px;
+    height: 10px;
+    top: 20%;
+    left: 200px;
+    background-color: rgb(245, 12, 24);
+    border-radius:50%;
+    display: none;
+    pointer-events: none;
+}
+.main .item {
+   display: flex;
+   flex-direction: column;
+}
+.main .items-green,
+.main .items-orange,
+.main .items-red {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+ }
+
+.main .color-green, 
+.main .color-orange,
+.main .color-red{
+    width: 20px;
+    height: 20px;
+    
+    margin-right:10px ;
+}
+
+.color-green{
+    background: green;
+}
+.color-orange{
+    background: orange;
+}
+.color-red{
+    background: red;
+}
